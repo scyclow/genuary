@@ -20,6 +20,8 @@ const minorScale = [1, 1.125, 1.2, 1.5, 1.666666, 1.75, 1.875, 2]
 const majorChord = upOrDown([1, 1.25, 1.5, 2])
 const minorChord = upOrDown([1, 1.2, 1.5, 2])
 
+const waveType = sample(['square', 'sine', 'triangle'])
+
 let layers = 0
 function generateMusicLayer() {
   layers++
@@ -237,7 +239,7 @@ function createSource(startingFreq = 500, fadein = 0.15, offsync=0, volX=1) {
   gain.connect(ctx.destination)
 
   gain.gain.value = 0.00000001
-  source.type = 'square'
+  source.type = waveType
   source.frequency.value = startingFreq * (1+offsync)
   source.start()
 
