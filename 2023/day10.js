@@ -2,7 +2,7 @@
 
 document.getElementById('start').onclick = generateMusicLayer
 
-const BASE_FREQ = rnd(400, 1000)
+const BASE_FREQ = rnd(400, 1000)/2
 const OFFSYNC = sample([0.005, 0.0075, 0.01, 0.0125, 0.015])
 
 console.log(BASE_FREQ, OFFSYNC)
@@ -20,7 +20,8 @@ const minorScale = [1, 1.125, 1.2, 1.5, 1.666666, 1.75, 1.875, 2]
 const majorChord = upOrDown([1, 1.25, 1.5, 2])
 const minorChord = upOrDown([1, 1.2, 1.5, 2])
 
-const waveType = sample(['square', 'sine', 'triangle'])
+const waveType = 'triangle'
+// sample(['square', 'sine', 'triangle'])
 
 let layers = 0
 function generateMusicLayer() {
@@ -96,7 +97,7 @@ function generateMusicLayer() {
   const progression3 = [1, ...times(3, () => sample([1.125, 1.2]))]
 
   // const note1 = startNote(currentFreq)
-  const note2 = startNote(currentFreq, 0.4)
+  // const note2 = startNote(currentFreq, 0.4)
   // const note3 = startNote(currentFreq*sample(minorScale.slice(1)), 0.25)
 
 
@@ -107,12 +108,12 @@ function generateMusicLayer() {
   //   i1++
   // }, 1500)
 
-  let i2 = 0
-  setInterval(() => {
-    note2.smoothFreq(currentFreq*progression2[i2%progression2.length], 0.1)
-    // note3.smoothFreq(currentFreq*sample(minorScale.slice(1))*progression2[i2%progression2.length], 0.1)
-    i2++
-  }, 250)
+  // let i2 = 0
+  // setInterval(() => {
+  //   note2.smoothFreq(currentFreq*progression2[i2%progression2.length], 0.1)
+  //   // note3.smoothFreq(currentFreq*sample(minorScale.slice(1))*progression2[i2%progression2.length], 0.1)
+  //   i2++
+  // }, 250)
 
 
   // let i3 = 0
